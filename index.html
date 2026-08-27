@@ -345,6 +345,21 @@
             transform: scale(1.06);
         }
 
+        /* Фото, которое нужно показать целиком (без обрезки) */
+        .discipline-photo-fit {
+            height: auto;
+            aspect-ratio: 2 / 3;
+            object-fit: contain;
+            background: var(--bg-card-subtle);
+            border: 1px solid var(--border-subtle);
+            padding: 8px;
+        }
+
+        .discipline-photo-fit:hover,
+        .discipline-card:hover .discipline-photo-fit {
+            padding: 4px;
+        }
+
         .disciplines-grid .reveal:nth-child(2) { transition-delay: 0.12s; }
         .disciplines-grid .reveal:nth-child(3) { transition-delay: 0.24s; }
 
@@ -623,6 +638,10 @@
             .discipline-photo {
                 height: 180px;
             }
+
+            .discipline-photo-fit {
+                height: auto;
+            }
         }
     </style>
 </head>
@@ -675,7 +694,7 @@
             </div>
 
             <div class="hero-visual">
-                <img src="gerardo-martin-fernandez-vallejo-r9wTQj27p8o-unsplash.jpg" alt="Aerial silks athlete performing mid-air at the championship arena" loading="lazy">
+                <img src="jaric-swart-J_7BJZYIOzk-unsplash.jpg" alt="Aerial silk athlete performing mid-air at the championship arena" loading="lazy">
             </div>
         </div>
     </section>
@@ -691,21 +710,21 @@
 
             <div class="about-grid">
                 <div class="about-card reveal">
-                    <img class="about-photo" src="philippe-murray-pietsch-Avp40_yB3R4-unsplash.jpg" alt="International jury panel observing an aerial performance" loading="lazy">
+                    <img class="about-photo" src="yle-archives-4njqWt1MWXc-unsplash.jpg" alt="International jury panel observing an aerial performance" loading="lazy">
                     <div class="card-icon">🏆</div>
                     <h3>International Jury</h3>
                     <p>World-standard judging from renowned Cirque du Soleil artists, world champions and internationally certified judges.</p>
                 </div>
 
                 <div class="about-card reveal">
-                    <img class="about-photo" src="philippe-murray-pietsch-gnKoUUfzFVg-unsplash.jpg" alt="Athlete training on aerial equipment in the high arena" loading="lazy">
+                    <img class="about-photo" src="klim-musalimov-EsfaSm6KVvE-unsplash.jpg" alt="Athlete training on aerial equipment in the high arena" loading="lazy">
                     <div class="card-icon">🎪</div>
                     <h3>World-Class Arena</h3>
                     <p>Professional certified rigging systems, an arena with 360-degree viewing and a kinetic light show.</p>
                 </div>
 
                 <div class="about-card reveal">
-                    <img class="about-photo" src="jaric-swart-J_7BJZYIOzk-unsplash.jpg" alt="Aerial hoop silhouette against a warm Mediterranean evening sky" loading="lazy">
+                    <img class="about-photo" src="xavier-praillet-qk8R17BT5FY-unsplash.jpg" alt="Aerial hoop silhouette against a warm Mediterranean evening sky" loading="lazy">
                     <div class="card-icon">🌴</div>
                     <h3>Riviera Atmosphere</h3>
                     <p>Combine a prestigious sporting performance with a holiday on Turkey's Mediterranean coast.</p>
@@ -727,7 +746,7 @@
                 <!-- Полотна -->
                 <div class="discipline-card reveal">
                     <div>
-                        <img class="discipline-photo" src="leon-andov-VaPdd5ZvfUQ-unsplash.jpg" alt="Aerial silks artist descending gracefully in mid-air" loading="lazy">
+                        <img class="discipline-photo discipline-photo-fit" src="gerardo-martin-fernandez-vallejo-r9wTQj27p8o-unsplash.jpg" alt="Aerial silks artist descending gracefully in mid-air" loading="lazy">
                         <div class="discipline-category">Category 01</div>
                         <h3>Aerial Silks</h3>
                         <p>A symbiosis of plasticity, breathtaking drops and flexibility at heights from 8 to 12 meters.</p>
@@ -743,7 +762,7 @@
                 <!-- Обруч -->
                 <div class="discipline-card reveal">
                     <div>
-                        <img class="discipline-photo" src="mark-williams-cScWwfxkk-A-unsplash.jpg" alt="Athlete balancing within an aerial hoop (lyra)" loading="lazy">
+                        <img class="discipline-photo" src="mango-gong-_hbvf9JwSSQ-unsplash.jpg" alt="Athlete balancing within an aerial hoop (lyra)" loading="lazy">
                         <div class="discipline-category">Category 02</div>
                         <h3>Aerial Hoop</h3>
                         <p>Flawless geometry, dynamic spins and graceful balances inside the ring (Aerial Hoop / Lyra).</p>
@@ -759,7 +778,7 @@
                 <!-- Стропы -->
                 <div class="discipline-card reveal">
                     <div>
-                        <img class="discipline-photo" src="matt-palmer-WHJ1VaQpPsg-unsplash.jpg" alt="Athlete holding a strength pose hanging on aerial straps" loading="lazy">
+                        <img class="discipline-photo" src="mark-williams-cScWwfxkk-A-unsplash.jpg" alt="Athlete holding a strength pose hanging on aerial straps" loading="lazy">
                         <div class="discipline-category">Category 03</div>
                         <h3>Aerial Straps</h3>
                         <p>A triumph of absolute physical strength, dynamic drops and balances on the straps (Aerial Straps).</p>
