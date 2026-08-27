@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerial Championship Turkey | Международный чемпионат по воздушной гимнастике</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- СВЕТЛАЯ ПАЛИТРА И НАСТРОЙКИ (APPLE LIGHT DESIGN) --- */
+        :root {
+            --bg-main: #fbfbfd;
+            --bg-secondary: #f5f5f7;
+            --bg-card: #ffffff;
+            --bg-card-subtle: rgba(255, 255, 255, 0.8);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 0, 0, 0.16);
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-tertiary: #86868b;
+            --accent: #0071e3;
+            --accent-hover: #0077ed;
+            --accent-light: rgba(0, 113, 227, 0.08);
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.08);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-pill: 980px;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- СВЕТОВЫЕ ПАСТЕЛЬНЫЕ ГРАДИЕНТЫ НА ФОНЕ --- */
+        .ambient-glow {
+            position: fixed;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(140px);
+            opacity: 0.6;
+        }
+
+        .glow-1 {
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: radial-gradient(circle, rgba(0, 113, 227, 0.12) 0%, rgba(251, 251, 253, 0) 70%);
+        }
+
+        .glow-2 {
+            top: 45%;
+            right: -150px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, rgba(251, 251, 253, 0) 70%);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- СТИКЕР-МЕНЮ (LIGHT FROSTED GLASS) --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            z-index: 1000;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* --- КНОПКИ --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: var(--radius-pill);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(0, 113, 227, 0.25);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 113, 227, 0.35);
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            background: #fdfdfd;
+            border-color: var(--border-hover);
+            transform: scale(1.02);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* --- ГЛАВНЫЙ РАЗДЕЛ (HERO) --- */
+        .hero {
+            padding: 170px 0 90px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 18px;
+            background: var(--accent-light);
+            border: 1px solid rgba(0, 113, 227, 0.15);
+            border-radius: var(--radius-pill);
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            box-shadow: 0 0 8px rgba(0, 113, 227, 0.6);
+        }
+
+        .hero-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2.6rem, 6vw, 4.6rem);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -1.8px;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 840px;
+            margin: 70px auto 0;
+            padding: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-item h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .stat-item p {
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- СЕКЦИИ --- */
+        section {
+            padding: 90px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 60px;
+        }
+
+        .section-tag {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        /* --- О СОРЕВНОВАНИЯХ (ABOUT) --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .about-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+        }
+
+        .about-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--border-hover);
+        }
+
+        .card-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: var(--radius-md);
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .about-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .about-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* --- ДИСЦИПЛИНЫ --- */
+        .disciplines-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .disciplines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .discipline-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .discipline-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(0, 113, 227, 0.3);
+        }
+
+        .discipline-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .discipline-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+
+        .discipline-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+
+        .discipline-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .discipline-features li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .discipline-features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* --- КОНТАКТЫ И МЕСТОПОЛОЖЕНИЕ --- */
+        .contact-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 50px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .contact-info p {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .info-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .info-text h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .info-text p {
+            color: var(--text-secondary);
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--bg-main);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .form-input:focus {
+            background: #ffffff;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.12);
+        }
+
+        /* --- ПОДВАЛ (FOOTER) --- */
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+            background: #ffffff;
+        }
+
+        /* --- АДАПТИВНОСТЬ --- */
+        @media (max-width: 868px) {
+            .contact-box {
+                grid-template-columns: 1fr;
+                padding: 30px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .hero {
+                padding: 130px 0 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Мягкие пастельные световые акценты -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Фиксированная панель навигации -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                AERIAL<span>TURKEY</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">О чемпионате</a></li>
+                <li><a href="#disciplines">Дисциплины</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+            <a href="#contacts" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.85rem;">Регистрация</a>
+        </div>
+    </header>
+
+    <!-- Секция HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">Анталья, Турция • 15–18 Октября 2026</div>
+            <h1 class="hero-title">Гравитация —<br>это лишь иллюзия.</h1>
+            <p class="hero-subtitle">Главный международный турнир по воздушной гимнастике на побережье Средиземного моря. Раскройте свой потенциал на высоте.</p>
+            
+            <div class="hero-actions">
+                <a href="#contacts" class="btn btn-primary">Подать заявку на участие</a>
+                <a href="#disciplines" class="btn btn-secondary">Изучить категории</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>25+</h3>
+                    <p>Стран-участниц</p>
+                </div>
+                <div class="stat-item">
+                    <h3>€15,000</h3>
+                    <p>Призовой фонд</p>
+                </div>
+                <div class="stat-item">
+                    <h3>12 м</h3>
+                    <p>Высота арены</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "О соревнованиях" -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Превосходство в воздухе</span>
+                <h2 class="section-title">Событие мирового уровня</h2>
+                <p class="section-desc">Aerial Championship — это точка слияния спортивной мощи, артистизма и безупречной эстетики полета в самом сердце Турецкой Ривьеры.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">🏆</div>
+                    <h3>Международное жюри</h3>
+                    <p>Оценка по мировым стандартам от признанных артистов Cirque du Soleil, чемпионов мира и судей международной категории.</p>
+                </div>
+
+                <div class="about-card">
+                    <div class="card-icon">🎪</div>
+                    <h3>Арена высшего класса</h3>
+                    <p>Профессиональные сертифицированные системы подвеса, арена с круговым обзором и кинетическое световое шоу.</p>
+                </div>
+
+                <div class="about-card">
+                    <div class="card-icon">🌴</div>
+                    <h3>Атмосфера Ривьеры</h3>
+                    <p>Возможность совместить престижное спортивное выступление с отдыхом на средиземноморском побережье Турции.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "Дисциплины" -->
+    <section id="disciplines" class="disciplines-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Категории соревнований</span>
+                <h2 class="section-title">Три стихии полета</h2>
+                <p class="section-desc">Выберите свою ключевую дисциплину и продемонстрируйте мастерство на главной высоте турнира.</p>
+            </div>
+
+            <div class="disciplines-grid">
+                <!-- Полотна -->
+                <div class="discipline-card">
+                    <div>
+                        <div class="discipline-category">Категория 01</div>
+                        <h3>Воздушные полотна</h3>
+                        <p>Симбиоз пластики, головокружительных обрывов и гибкости на высоте от 8 до 12 метров.</p>
+                        <ul class="discipline-features">
+                            <li>Соло и дуэты</li>
+                            <li>Дети, Любители, Профессионалы</li>
+                            <li>Высота подвеса до 12 м</li>
+                        </ul>
+                    </div>
+                    <a href="#contacts" class="btn btn-secondary" style="width: 100%;">Выбрать полотна</a>
+                </div>
+
+                <!-- Обруч -->
+                <div class="discipline-card">
+                    <div>
+                        <div class="discipline-category">Категория 02</div>
+                        <h3>Воздушный обруч</h3>
+                        <p>Безупречная геометрия, динамичные спины и грациозные балансы внутри кольца (Aerial Hoop / Lyra).</p>
+                        <ul class="discipline-features">
+                            <li>Один и два подвеса</li>
+                            <li>Вращающиеся и статические блоки</li>
+                            <li>Артистическая и спортивная номинации</li>
+                        </ul>
+                    </div>
+                    <a href="#contacts" class="btn btn-secondary" style="width: 100%;">Выбрать обруч</a>
+                </div>
+
+                <!-- Стропы -->
+                <div class="discipline-card">
+                    <div>
+                        <div class="discipline-category">Категория 03</div>
+                        <h3>Воздушные стропы</h3>
+                        <p>Триумф абсолютной физической силы, динамических срывов и балансов на стропах (Aerial Straps).</p>
+                        <ul class="discipline-features">
+                            <li>Мужские и женские соло</li>
+                            <li>Силовые элементы категории Pro</li>
+                            <li>Парные выступления</li>
+                        </ul>
+                    </div>
+                    <a href="#contacts" class="btn btn-secondary" style="width: 100%;">Выбрать стропы</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "Контакты и локация" -->
+    <section id="contacts">
+        <div class="container">
+            <div class="contact-box">
+                <div class="contact-info">
+                    <span class="section-tag">Место встречи</span>
+                    <h3>Готовы взлететь?</h3>
+                    <p>Свяжитесь с оргкомитетом или отправьте предварительную заявку на участие.</p>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-text">
+                            <h4>Место проведения</h4>
+                            <p>Antalya Sports Arena, Muratpaşa, Анталья, Турция</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">⏰</div>
+                        <div class="info-text">
+                            <h4>Регистрационная стойка</h4>
+                            <p>Пн – Вс: 09:00 — 19:00 (GMT+3)<br>В дни чемпионата: 08:00 — 22:00</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">✉️</div>
+                        <div class="info-text">
+                            <h4>Электронная почта</h4>
+                            <p>info@aerialchampionship-turkey.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо за заявку! Оргкомитет свяжется с вами в ближайшее время.');">
+                    <input type="text" class="form-input" placeholder="Ваше полное имя" required>
+                    <input type="email" class="form-input" placeholder="Адрес эл. почты" required>
+                    <select class="form-input" required>
+                        <option value="" disabled selected>Выберите дисциплину</option>
+                        <option value="silks">Воздушные полотна</option>
+                        <option value="hoop">Воздушный обруч</option>
+                        <option value="straps">Воздушные стропы</option>
+                    </select>
+                    <input type="text" class="form-input" placeholder="Город / Клуб / Страна">
+                    <button type="submit" class="btn btn-primary" style="margin-top: 8px;">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Aerial Championship Turkey. Все права защищены. Дизайн в светлой эстетике Apple.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
