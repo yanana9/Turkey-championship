@@ -263,6 +263,91 @@
             letter-spacing: 0.5px;
         }
 
+        /* --- ФОТОВИЗУАЛ В ГЕРОЕ (HERO VISUAL) --- */
+        .hero-visual {
+            position: relative;
+            margin: 60px auto 0;
+            max-width: 900px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+            animation: floaty 6s ease-in-out infinite;
+        }
+
+        .hero-visual img {
+            display: block;
+            width: 100%;
+            height: 460px;
+            object-fit: cover;
+            animation: kenburns 18s ease-in-out infinite alternate;
+        }
+
+        .hero-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(251, 251, 253, 0.85) 0%, rgba(251, 251, 253, 0) 35%);
+            pointer-events: none;
+        }
+
+        @keyframes floaty {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        @keyframes kenburns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+
+        /* --- ПОЯВЛЕНИЕ ПРИ СКРОЛЛЕ (REVEAL) --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- ФОТО В КАРТОЧКАХ ABOUT --- */
+        .about-photo {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .about-card:hover .about-photo {
+            transform: scale(1.05);
+        }
+
+        .about-grid .reveal:nth-child(2) { transition-delay: 0.12s; }
+        .about-grid .reveal:nth-child(3) { transition-delay: 0.24s; }
+
+        /* --- ФОТО В КАРТОЧКАХ ДИСЦИПЛИН --- */
+        .discipline-photo {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .discipline-card:hover .discipline-photo {
+            transform: scale(1.06);
+        }
+
+        .disciplines-grid .reveal:nth-child(2) { transition-delay: 0.12s; }
+        .disciplines-grid .reveal:nth-child(3) { transition-delay: 0.24s; }
+
         /* --- СЕКЦИИ --- */
         section {
             padding: 90px 0;
@@ -526,6 +611,18 @@
             .hero {
                 padding: 130px 0 60px;
             }
+
+            .hero-visual img {
+                height: 300px;
+            }
+
+            .about-photo {
+                height: 160px;
+            }
+
+            .discipline-photo {
+                height: 180px;
+            }
         }
     </style>
 </head>
@@ -576,6 +673,10 @@
                     <p>Arena Height</p>
                 </div>
             </div>
+
+            <div class="hero-visual">
+                <img src="gerardo-martin-fernandez-vallejo-r9wTQj27p8o-unsplash.jpg" alt="Aerial silks athlete performing mid-air at the championship arena" loading="lazy">
+            </div>
         </div>
     </section>
 
@@ -589,19 +690,22 @@
             </div>
 
             <div class="about-grid">
-                <div class="about-card">
+                <div class="about-card reveal">
+                    <img class="about-photo" src="philippe-murray-pietsch-Avp40_yB3R4-unsplash.jpg" alt="International jury panel observing an aerial performance" loading="lazy">
                     <div class="card-icon">🏆</div>
                     <h3>International Jury</h3>
                     <p>World-standard judging from renowned Cirque du Soleil artists, world champions and internationally certified judges.</p>
                 </div>
 
-                <div class="about-card">
+                <div class="about-card reveal">
+                    <img class="about-photo" src="philippe-murray-pietsch-gnKoUUfzFVg-unsplash.jpg" alt="Athlete training on aerial equipment in the high arena" loading="lazy">
                     <div class="card-icon">🎪</div>
                     <h3>World-Class Arena</h3>
                     <p>Professional certified rigging systems, an arena with 360-degree viewing and a kinetic light show.</p>
                 </div>
 
-                <div class="about-card">
+                <div class="about-card reveal">
+                    <img class="about-photo" src="jaric-swart-J_7BJZYIOzk-unsplash.jpg" alt="Aerial hoop silhouette against a warm Mediterranean evening sky" loading="lazy">
                     <div class="card-icon">🌴</div>
                     <h3>Riviera Atmosphere</h3>
                     <p>Combine a prestigious sporting performance with a holiday on Turkey's Mediterranean coast.</p>
@@ -621,8 +725,9 @@
 
             <div class="disciplines-grid">
                 <!-- Полотна -->
-                <div class="discipline-card">
+                <div class="discipline-card reveal">
                     <div>
+                        <img class="discipline-photo" src="leon-andov-VaPdd5ZvfUQ-unsplash.jpg" alt="Aerial silks artist descending gracefully in mid-air" loading="lazy">
                         <div class="discipline-category">Category 01</div>
                         <h3>Aerial Silks</h3>
                         <p>A symbiosis of plasticity, breathtaking drops and flexibility at heights from 8 to 12 meters.</p>
@@ -636,8 +741,9 @@
                 </div>
 
                 <!-- Обруч -->
-                <div class="discipline-card">
+                <div class="discipline-card reveal">
                     <div>
+                        <img class="discipline-photo" src="mark-williams-cScWwfxkk-A-unsplash.jpg" alt="Athlete balancing within an aerial hoop (lyra)" loading="lazy">
                         <div class="discipline-category">Category 02</div>
                         <h3>Aerial Hoop</h3>
                         <p>Flawless geometry, dynamic spins and graceful balances inside the ring (Aerial Hoop / Lyra).</p>
@@ -651,8 +757,9 @@
                 </div>
 
                 <!-- Стропы -->
-                <div class="discipline-card">
+                <div class="discipline-card reveal">
                     <div>
+                        <img class="discipline-photo" src="matt-palmer-WHJ1VaQpPsg-unsplash.jpg" alt="Athlete holding a strength pose hanging on aerial straps" loading="lazy">
                         <div class="discipline-category">Category 03</div>
                         <h3>Aerial Straps</h3>
                         <p>A triumph of absolute physical strength, dynamic drops and balances on the straps (Aerial Straps).</p>
@@ -724,6 +831,26 @@
             <p>© 2026 Aerial Championship Turkey. All rights reserved. Design in Apple's light aesthetic.</p>
         </div>
     </footer>
+
+    <!-- Reveal-анимации при скролле -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var revealEls = document.querySelectorAll('.reveal');
+            if ('IntersectionObserver' in window) {
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            io.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealEls.forEach(function (el) { io.observe(el); });
+            } else {
+                revealEls.forEach(function (el) { el.classList.add('visible'); });
+            }
+        });
+    </script>
 
 </body>
 </html>
