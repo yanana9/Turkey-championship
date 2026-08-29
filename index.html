@@ -538,21 +538,6 @@
             transform: scale(1.06);
         }
 
-        /* Фото, которое нужно показать целиком (без обрезки) */
-        .discipline-photo-fit {
-            height: auto;
-            aspect-ratio: 2 / 3;
-            object-fit: contain;
-            background: var(--bg-card-subtle);
-            border: 1px solid var(--border-subtle);
-            padding: 8px;
-        }
-
-        .discipline-photo-fit:hover,
-        .discipline-card:hover .discipline-photo-fit {
-            padding: 4px;
-        }
-
         .disciplines-grid .reveal:nth-child(2) { transition-delay: 0.12s; }
         .disciplines-grid .reveal:nth-child(3) { transition-delay: 0.24s; }
 
@@ -865,10 +850,6 @@
             .discipline-photo {
                 height: 180px;
             }
-
-            .discipline-photo-fit {
-                height: auto;
-            }
         }
     </style>
 </head>
@@ -980,7 +961,7 @@
                 <!-- Полотна -->
                 <div class="discipline-card reveal">
                     <div>
-                        <img class="discipline-photo discipline-photo-fit" src="gerardo-martin-fernandez-vallejo-r9wTQj27p8o-unsplash.jpg" alt="Aerial silks artist descending gracefully in mid-air" loading="lazy">
+                        <img class="discipline-photo" style="object-position: 50% 55%;" src="gerardo-martin-fernandez-vallejo-r9wTQj27p8o-unsplash.jpg" alt="Aerial silks artist descending gracefully in mid-air" loading="lazy">
                         <div class="discipline-category">Category 01</div>
                         <h3>Aerial Silks</h3>
                         <p>A symbiosis of plasticity, breathtaking drops and flexibility at heights from 8 to 12 meters.</p>
