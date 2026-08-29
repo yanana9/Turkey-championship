@@ -11,6 +11,9 @@
   Затем «девушка целиком в кадре»: height 460→680px (index.html:478),
   object-position 50% 67% inline (:912). Мобильные 300px без изменений.
 - Ранее: фикс фото в карточке Silks (inline object-position, `discipline-photo-fit` удалён, diff +1/−20).
+- [2026-08-30] Карточка «Riviera Atmosphere» (index.html:942): фото заменено на
+  `istockphoto-1394774679-612x612.webp` (612×434, ч/б набережная Ривьеры), alt переписан.
+  object-position не нужен — cover при 200px окна показывает ~79% высоты.
 - [2026-08-30] Создан memory-bank/ (6 файлов).
 
 ## Известные замечания
