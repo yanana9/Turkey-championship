@@ -18,7 +18,10 @@ along a pebble beach on the Turkish Riviera coast". object-position не пот�
 ## Открытые вопросы
 1. Визуальная приёмка (страница переоткрыта): хватает ли высоты 680px, не сделать ли 640–700.
 2. `loading="lazy"` на hero (выше фолда) — кандидат на удаление/`fetchpriority="high"`.
-3. Неиспользуемый `jaric-swart-J_7BJZYIOzk-unsplash.jpg` лежит в корне.
+3. Неиспользуемые файлы: `jaric-swart-...jpg`, `xavier-praillet-...jpg` (из карточки).
+4. `xavier-praillet-...jpg` остался фоном hero (`.hero-backdrop`, index.html:103, cover,
+   center 35%, scale 1.18): пользователь просил заменить только карточку Riviera.
+   Если менять и фон — файл istock 612px мал для full-bleed (нужен ретина-размер).
 
 ## Следующие шаги
 - Ждать фидбек по кадру; правки — высота в index.html:478 и процент в :912.
