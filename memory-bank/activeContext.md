@@ -4,9 +4,9 @@
 Hero-фото: `photo-1731257339923-25e40a0a0699.avif` (строка 912): height 680px (:478),
 inline `object-position: 50% 67%` — фигура целиком в кадре на всех ширинах.
 
-Плюс заменено фото карточки «Riviera Atmosphere» (строка 942):
-`istockphoto-1394774679-612x612.webp`, 612×434, ч/б; alt: "White Mediterranean houses
-along a pebble beach on the Turkish Riviera coast". object-position не потребовался.
+Карточка «Riviera Atmosphere» (:942): `istockphoto-1394774679-612x612.webp` (612×434, ч/б).
+Эмодзи «World-Class Arena» (:936): 🏟️. Контакты: почта WM@IAAA.TEAM (:1062),
+добавлена карта `.venue-map` (Google embed, Antalya Sports Hall, Muratpaşa) после contact-box.
 
 ## Геометрия (почему именно так)
 Фото 900×1353; фигура спортсменки ≈ y 515–1095 (580px, центр 805). Окно 460px
