@@ -1,12 +1,23 @@
 # Active Context
 
 ## Текущий фокус
-Hero-фото: `photo-1731257339923-25e40a0a0699.avif` (строка 912): height 680px (:478),
-inline `object-position: 50% 67%` — фигура целиком в кадре на всех ширинах.
+Hero-фото: **`aerial-hero-0830.jpg`** (index.html:933) — ландшафт 1800×1350, 304KB,
+JPEG progressive q88. Получено из сырого PNG `2026-08-30 23.23.31.jpg` (2560×1920, 5.6MB)
+скриптом /tmp/enhance_newhero.py: Lanczos-д downscale до 1800px ширины (2× коробка 900×680)
+→ UnsharpMask(2.2/88/2) → Contrast 1.03 / Color 1.05 / Brightness 1.01 (та же цветокоррекция
+для согласованности; GaussianBlur опущен — PNG без webp-артефактов). object-position 50% 50%:
+ландшафтное соотн. сторон (1.333) почти совпадает с коробкой (1.324) → cover почти не обрезает.
+Alt: `Aerial gymnastics artist performing in the championship arena` — сайт тематики
+aerial silks/hoop; PNG не просмотрен, alt написан по тематике сайта (скорректировать при необходимости).
 
-Карточка «Riviera Atmosphere» (:942): `istockphoto-1394774679-612x612.webp` (612×434, ч/б).
-Эмодзи «World-Class Arena» (:936): 🏟️. Контакты: почта WM@IAAA.TEAM (:1062),
-добавлена карта `.venue-map` (Google embed, Antalya Sports Hall, Muratpaşa) после contact-box.
+История hero-замен за день: jaric → avif 1731257339923 → webp 1791391py →
+aerial-silks-arena (+облака) → gnbkglrbklr → aerial-silks-sky-hq → aerial-hero-0830 (текущее, ландшафт).
+Прочее: «Riviera Atmosphere» (:942) → istockphoto ч/б; эмодзи 🏟️ (:936);
+почта WM@IAAA.TEAM; карта `.venue-map` после contact-box.
+
+История hero-замен за день: jaric → avif 1731257339923 → webp 1791391py → aerial-silks-arena.
+Прочее: «Riviera Atmosphere» (:942) → istockphoto ч/б; эмодзи 🏟️ (:936); почта WM@IAAA.TEAM;
+карта `.venue-map` после contact-box.
 
 ## Геометрия (почему именно так)
 Фото 900×1353; фигура спортсменки ≈ y 515–1095 (580px, центр 805). Окно 460px
